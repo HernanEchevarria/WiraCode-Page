@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wira Code — Arquitectos de software</title>
+<meta name="description" content="Wira Code diseña y desarrolla aplicaciones web, móviles y sistemas a medida para empresas que necesitan tecnología sólida.">
+<link rel="icon" type="image/png" href="assets/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="top">
+  <div class="container nav__inner">
+    <a href="#top" class="nav__brand">
+      <img src="assets/logo-icon.png" alt="Wira Code" class="nav__mark">
+      <span class="nav__word">WIRA <strong>CODE</strong></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="#contacto" class="btn btn--primary btn--small">Contáctanos</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav__mobile" id="navMobile">
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow">// wira: arquitecto, creador — quechua</p>
+      <h1 class="hero__title">
+        Construimos software<br>
+        con la precisión<br>
+        de un <span class="hero__accent">arquitecto</span>.
+      </h1>
+      <p class="hero__subtitle">
+        Wira Code diseña y desarrolla aplicaciones web, móviles y sistemas a medida
+        para empresas que necesitan tecnología sólida — no solo código.
+      </p>
+      <div class="hero__actions">
+        <a href="#contacto" class="btn btn--primary">Iniciar un proyecto</a>
+        <a href="#servicios" class="btn btn--ghost">Ver servicios ↓</a>
+      </div>
+    </div>
+    <div class="hero__figure" aria-hidden="true">
+      <svg viewBox="0 0 480 480" class="hero__svg" id="heroSvg">
+        <polyline class="draw" points="240,60 130,150 130,330 240,420" />
+        <polyline class="draw" points="240,60 350,150 350,330 240,420" />
+        <polyline class="draw" points="240,60 240,420" />
+        <polyline class="draw draw--delay" points="130,150 240,205 130,240" />
+        <polyline class="draw draw--delay" points="240,110 320,150 260,175 340,205 260,235" />
+        <polyline class="draw draw--delay" points="240,260 300,290 340,310 300,320 340,340" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICIOS ===== -->
+<section class="services" id="servicios">
+  <div class="container">
+    <p class="eyebrow eyebrow--center">// servicios</p>
+    <h2 class="section__title">Lo que construimos</h2>
+    <p class="section__subtitle">Cuatro disciplinas, un mismo estándar de calidad.</p>
+
+    <div class="services__grid">
+      <article class="service-card">
+        <span class="service-card__tag">&gt; web</span>
+        <h3>Desarrollo Web</h3>
+        <p>Sitios y plataformas rápidas, seguras y escalables, hechas a la medida de tu negocio y pensadas para crecer con él.</p>
+      </article>
+
+      <article class="service-card">
+        <span class="service-card__tag">&gt; mobile</span>
+        <h3>Aplicaciones Móviles</h3>
+        <p>Apps nativas e híbridas para iOS y Android, diseñadas a partir de cómo se comportan tus usuarios reales.</p>
+      </article>
+
+      <article class="service-card">
+        <span class="service-card__tag">&gt; custom</span>
+        <h3>Software a Medida</h3>
+        <p>Sistemas internos, ERPs y herramientas que se ajustan a cómo trabaja tu equipo — no al revés.</p>
+      </article>
+
+      <article class="service-card">
+        <span class="service-card__tag">&gt; consult</span>
+        <h3>Consultoría Tecnológica</h3>
+        <p>Auditoría, arquitectura y acompañamiento técnico para tomar mejores decisiones de tecnología.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section class="contact" id="contacto">
+  <div class="container contact__inner">
+    <div class="contact__info">
+      <p class="eyebrow eyebrow--light">// contacto</p>
+      <h2 class="contact__title">Hablemos de tu proyecto</h2>
+      <p class="contact__text">
+        Cuéntanos qué necesitas construir. Respondemos en menos de 24 horas hábiles.
+      </p>
+      <ul class="contact__list">
+        <li><span>Correo</span><a href="mailto:hola@wiracode.com">hola@wiracode.com</a></li>
+        <li><span>Teléfono</span><a href="https://wa.me/51991330942?text=Hola%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener">+51 991 330 942</a></li>
+        <li><span>Ubicación</span>Lima, Perú</li>
+      </ul>
+    </div>
+
+    <form class="contact__form" id="contactForm" novalidate>
+      <div class="field">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+      </div>
+      <div class="field">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+      </div>
+      <div class="field">
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full">Enviar mensaje</button>
+      <p class="form__status" id="formStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img src="assets/logo-icon.png" alt="Wira Code" class="footer__mark">
+      <span>WIRA CODE</span>
+    </div>
+    <p>© <span id="year"></span> Wira Code. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
