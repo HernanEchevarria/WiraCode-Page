@@ -116,24 +116,136 @@
         <li><span>Teléfono</span><a href="https://wa.me/51991330942?text=Hola%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener">+51 991 330 942</a></li>
         <li><span>Ubicación</span>Lima, Perú</li>
       </ul>
+
+      <div class="contact__altbox">
+        <p>¿Prefieres saltarte el formulario?</p>
+        <a href="https://wa.me/51991330942?text=Hola%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener" class="btn btn--ghost btn--small">
+          Escríbenos por WhatsApp →
+        </a>
+      </div>
     </div>
 
-    <form class="contact__form" id="contactForm" novalidate>
-      <div class="field">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+    <div class="wizard" id="wizard">
+
+      <!-- Barra de progreso -->
+      <div class="wizard__progress">
+        <div class="wizard__step-indicator" data-step="1">
+          <span class="wizard__dot">1</span><span class="wizard__label">Contacto</span>
+        </div>
+        <div class="wizard__bar"><span id="wizardBarFill"></span></div>
+        <div class="wizard__step-indicator" data-step="2">
+          <span class="wizard__dot">2</span><span class="wizard__label">Proyecto</span>
+        </div>
+        <div class="wizard__bar"><span></span></div>
+        <div class="wizard__step-indicator" data-step="3">
+          <span class="wizard__dot">3</span><span class="wizard__label">Detalles</span>
+        </div>
       </div>
-      <div class="field">
-        <label for="email">Correo</label>
-        <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+
+      <form class="contact__form" id="contactForm" novalidate>
+
+        <!-- PASO 1 -->
+        <fieldset class="wizard__step is-active" data-step="1">
+          <p class="wizard__step-title">Cuéntanos quién eres</p>
+
+          <div class="field">
+            <label for="name">Nombre completo *</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+            <span class="field__error">Por favor ingresa tu nombre.</span>
+          </div>
+          <div class="field">
+            <label for="company">Empresa</label>
+            <input type="text" id="company" name="company" placeholder="Nombre de tu empresa (opcional)">
+          </div>
+          <div class="field">
+            <label for="email">Correo *</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
+            <span class="field__error">Ingresa un correo válido.</span>
+          </div>
+
+          <div class="wizard__actions">
+            <span></span>
+            <button type="button" class="btn btn--primary wizard__next">Siguiente →</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 2 -->
+        <fieldset class="wizard__step" data-step="2">
+          <p class="wizard__step-title">Sobre el proyecto</p>
+
+          <div class="field">
+            <label>Tipo de proyecto *</label>
+            <div class="option-grid" data-name="projectType">
+              <button type="button" class="option-card" data-value="Desarrollo Web">
+                <span class="option-card__icon">◧</span> Desarrollo Web
+              </button>
+              <button type="button" class="option-card" data-value="Aplicación Móvil">
+                <span class="option-card__icon">▣</span> Aplicación Móvil
+              </button>
+              <button type="button" class="option-card" data-value="Software a Medida">
+                <span class="option-card__icon">⚙</span> Software a Medida
+              </button>
+              <button type="button" class="option-card" data-value="Consultoría">
+                <span class="option-card__icon">◈</span> Consultoría
+              </button>
+            </div>
+            <input type="hidden" id="projectType" name="projectType" required>
+            <span class="field__error">Selecciona una opción.</span>
+          </div>
+
+          <div class="field">
+            <label for="budget">Presupuesto estimado *</label>
+            <select id="budget" name="budget" required>
+              <option value="" disabled selected>Selecciona un rango</option>
+              <option value="Menos de $5,000">Menos de $5,000</option>
+              <option value="$5,000 – $15,000">$5,000 – $15,000</option>
+              <option value="$15,000 – $50,000">$15,000 – $50,000</option>
+              <option value="Más de $50,000">Más de $50,000</option>
+              <option value="Prefiero conversarlo">Prefiero conversarlo</option>
+            </select>
+            <span class="field__error">Selecciona un rango.</span>
+          </div>
+
+          <div class="wizard__actions">
+            <button type="button" class="btn btn--ghost wizard__prev">← Atrás</button>
+            <button type="button" class="btn btn--primary wizard__next">Siguiente →</button>
+          </div>
+        </fieldset>
+
+        <!-- PASO 3 -->
+        <fieldset class="wizard__step" data-step="3">
+          <p class="wizard__step-title">Cuéntanos los detalles</p>
+
+          <div class="field">
+            <label for="message">Mensaje *</label>
+            <textarea id="message" name="message" rows="4" placeholder="¿Qué necesitas construir? Cuéntanos objetivos, plazos o cualquier detalle relevante." required></textarea>
+            <span class="field__error">Cuéntanos brevemente tu proyecto.</span>
+          </div>
+
+          <div class="wizard__actions">
+            <button type="button" class="btn btn--ghost wizard__prev">← Atrás</button>
+            <button type="submit" class="btn btn--primary" id="submitBtn">
+              <span class="btn__text">Enviar solicitud</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </fieldset>
+
+      </form>
+
+      <!-- Estado de éxito -->
+      <div class="wizard__success" id="wizardSuccess">
+        <span class="wizard__success-icon">✓</span>
+        <h3>¡Solicitud enviada!</h3>
+        <p id="successMessage">Gracias. Te contactaremos en menos de 24 horas hábiles.</p>
+        <a href="https://wa.me/51991330942?text=Hola%2C%20acabo%20de%20enviar%20una%20solicitud%20desde%20la%20web" target="_blank" rel="noopener" class="btn btn--ghost btn--small">
+          Hablar ahora por WhatsApp →
+        </a>
       </div>
-      <div class="field">
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
-      </div>
-      <button type="submit" class="btn btn--primary btn--full">Enviar mensaje</button>
+
       <p class="form__status" id="formStatus" role="status"></p>
-    </form>
+    </div>
+
   </div>
 </section>
 
